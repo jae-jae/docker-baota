@@ -1,9 +1,13 @@
 FROM centos:7
 MAINTAINER Jaeger <JaegerCode@gmail.com>
 
+ADD install.sh /root/
+
 USER root
 
-RUN yum install -y wget && wget -O install.sh http://download.bt.cn/install/install.sh && sh install.sh
+RUN yum -y install initscripts && yum clean all
 
-EXPOSE 80
+RUN sh /root/install.sh 2>&1 | tee /root/install.log
+
+EXPOSE 80 8888
 
