@@ -9,5 +9,5 @@ RUN yum -y install initscripts && yum clean all
 
 RUN sh /root/install.sh 2>&1 | tee /root/install.log
 
-EXPOSE 80 8888
+EXPOSE 80 8888 888 443 20 21
 
