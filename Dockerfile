@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:6.9
 MAINTAINER Jaeger <JaegerCode@gmail.com>
 
 ADD install.sh /root/
@@ -6,7 +6,7 @@ ADD start.sh /root/
 
 USER root
 
-RUN yum -y install initscripts && yum clean all
+RUN yum update -y && yum -y install initscripts && yum clean all
 
 RUN sh /root/install.sh 2>&1 | tee /root/install.log
 
