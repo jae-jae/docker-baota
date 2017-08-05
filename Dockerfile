@@ -2,7 +2,7 @@ FROM centos:6.9
 MAINTAINER Jaeger <JaegerCode@gmail.com>
 
 ADD install.sh /root/
-ADD start.sh /root/
+ADD start.sh /
 
 USER root
 
@@ -12,8 +12,8 @@ RUN sh /root/install.sh 2>&1 | tee /root/install.log
 
 EXPOSE 80 8888 888 443 20 21
 
-RUN chmod +x /root/start.sh 
+RUN chmod +x /start.sh 
 
-CMD /root/start.sh
+CMD /start.sh
 
 
