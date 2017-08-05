@@ -6,9 +6,9 @@ ADD start.sh /
 
 USER root
 
-RUN yum update -y && yum -y install initscripts && yum clean all
+RUN yum -y install initscripts && sh /root/install.sh 2>&1 | tee /root/install.log
 
-RUN sh /root/install.sh 2>&1 | tee /root/install.log
+RUN yum clean all
 
 EXPOSE 80 8888 888 443 20 21
 
