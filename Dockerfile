@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:7.5
 MAINTAINER Jaeger <JaegerCode@gmail.com>
 
 ADD install.sh /root/
@@ -6,7 +6,7 @@ ADD start.sh /
 
 USER root
 
-RUN yum -y install initscripts && sh /root/install.sh 2>&1 | tee /root/install.log
+RUN yum -y install initscripts wget && sh /root/install.sh 2>&1 | tee /root/install.log
 
 RUN yum clean all
 
